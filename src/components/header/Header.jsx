@@ -23,6 +23,7 @@ const Header = () => {
         </a>
       </li>
       <div className="right-nav">
+
         <div className="desktop-action-btn">
           <div className="desktop-query">
             <SearchIcon className="right-nav-img img-search"></SearchIcon>
@@ -35,6 +36,7 @@ const Header = () => {
           <NavLinkUser svg={<UserIcon className="right-nav-img" />} />
           <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
           <NavLinkItems svg={<ShoppingCartIcon className="right-nav-img" />} />
+
         </div>
       </div>
     </nav>
