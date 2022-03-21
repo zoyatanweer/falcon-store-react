@@ -3,10 +3,10 @@ import "./Homepage.css";
 import { CategoriesIcon } from "../../Assets/Svg/allsvg";
 import { FeaturedItems } from "../index";
 import homeImage from "../../Assets/Images/homepage.png";
-import tshirt from "../../Assets/Images/homepage.png";
-import hoodies from "../../Assets/Images/homepage.png";
-import keychains from "../../Assets/Images/homepage.png";
-import mugs from "../../Assets/Images/homepage.png";
+import tshirt from "../../Assets/Images/category-tshirt.jpg";
+import hoodies from "../../Assets/Images/category-hoodie.jpg";
+import keychains from "../../Assets/Images/category-keychain.jpg";
+import mugs from "../../Assets/Images/category-mug.jpg";
 
 // homepage
 const Homepage = () => {
