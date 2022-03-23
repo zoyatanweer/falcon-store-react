@@ -1,6 +1,7 @@
 import React from "react";
 import "./Header.css";
-import { NavLinkItems, NavLinkUser } from "../index";
+import { NavLinkItems, NavLinkUser, Homepage, Products } from "../index";
+import { Link } from "react-router-dom";
 import {
   SearchIcon,
   AddToWishlist,
@@ -13,17 +14,19 @@ const Header = () => {
     <nav className="navigation-container">
       <div className="nav-brand">Falcon Store</div>
       <li className="list-item list-non-bullet">
-        <a className="link link-active" href="/index.html">
+        {/* <a className="link link-active" href="/index.html">
           HOME
-        </a>
+        </a> */}
+        <Link className="link link-active" to="/">
+          HOME
+        </Link>
       </li>
       <li className="list-item list-non-bullet">
-        <a className="link" href="./components/products/products.html">
+        <Link className="link" to="/products">
           PRODUCTS
-        </a>
+        </Link>
       </li>
       <div className="right-nav">
-
         <div className="desktop-action-btn">
           <div className="desktop-query">
             <SearchIcon className="right-nav-img img-search"></SearchIcon>
@@ -34,9 +37,14 @@ const Header = () => {
             />
           </div>
           <NavLinkUser svg={<UserIcon className="right-nav-img" />} />
-          <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
-          <NavLinkItems svg={<ShoppingCartIcon className="right-nav-img" />} />
-
+          <Link to="/wishlist">
+            <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
+          </Link>
+          <Link to="/cart">
+            <NavLinkItems
+              svg={<ShoppingCartIcon className="right-nav-img" />}
+            />
+          </Link>
         </div>
       </div>
     </nav>
