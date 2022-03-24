@@ -63,6 +63,31 @@ function CopyrightIcon(props) {
   );
 }
 
+function RatingIcon(props) {
+  return (
+    <svg width="2rem" height="2rem" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08l4.15-2.5z"
+      ></path>
+    </svg>
+  );
+}
+{
+  /* <FontAwesomeIcon icon="fa-regular fa-heart" />; */
+}
+
+function ShareIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+      <path
+        fill="currentColor"
+        d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81c1.66 0 3-1.34 3-3s-1.34-3-3-3s-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65c0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"
+      ></path>
+    </svg>
+  );
+}
+
 export {
   SearchIcon,
   ShoppingCartIcon,
@@ -70,4 +95,6 @@ export {
   UserIcon,
   CategoriesIcon,
   CopyrightIcon,
+  RatingIcon,
+  ShareIcon,
 };
