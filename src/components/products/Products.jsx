@@ -127,17 +127,10 @@ const Products = () => {
                     <button className="btn-cart">
                       <i className="fas fa-shopping-cart"></i>Add to cart
                     </button>
-                    {/* <button className="heart-btn">
-                      <i className="far fa-heart"></i>
-                    </button> */}
                     <button className="heart-btn">
                       {<AddToWishlist className="far fa-heart" />}
-                      {/* {<FontAwesomeIcon icon="fa-regular fa-heart" />} */}
                     </button>
-                    <button className="share-btn">
-                      {/* <i className="fas fa-share-alt"></i> */}
-                      {<ShareIcon />}
-                    </button>
+                    <button className="share-btn">{<ShareIcon />}</button>
                   </div>
                 </div>
               </div>

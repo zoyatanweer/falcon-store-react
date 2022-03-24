@@ -14,9 +14,6 @@ const Header = () => {
     <nav className="navigation-container">
       <div className="nav-brand">Falcon Store</div>
       <li className="list-item list-non-bullet">
-        {/* <a className="link link-active" href="/index.html">
-          HOME
-        </a> */}
         <Link className="link link-active" to="/">
           HOME
         </Link>
