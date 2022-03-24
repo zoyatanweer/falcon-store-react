@@ -11,42 +11,6 @@ const Wishlist = () => {
         <div class="wishlisted-total">Total items in wishlist - 4</div>
       </div>
       <div class="wishlist-products">
-        {/* card1 */}
-        {/* <div class="card-vertical" key={_id}>
-          <div class="card-picture">
-            <img
-              class="card-img"
-              src="../assets/images/download.jpg"
-              alt="Marvel doodle tshirt"
-            />
-            <span class="hide card-badge">New Arrival</span>
-            <span class="hide dismiss-btn">X</span>
-            <div class="hide overlay">Out of stock</div>
-          </div>
-
-          <div class="card-about">
-            <h1 class="title">Grey T-shirt</h1>
-            <h2 class="sub-title card-sub-title">
-              Casual grey colour t-shirt with marvel heroes doodle.
-            </h2>
-            <p class="card-para">
-              ₹950
-              <span class="striken-text">₹1500</span>
-            </p>
-            <div class="card-container-action">
-              <button class="btn-cart">
-                <i class="fas fa-shopping-cart"></i>Add to cart
-              </button>
-              <button class="heart-btn on-btn">
-                <i class="far fa-heart"></i>
-              </button>
-              <button class="share-btn">
-                <i class="fas fa-share-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div> */}
-
         {/* card in react */}
 
         {WishlistData.map((item) => {
