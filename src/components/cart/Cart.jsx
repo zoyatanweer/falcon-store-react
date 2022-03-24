@@ -36,10 +36,6 @@ const Cart = () => {
                 />
                 {hasOffer && <span className="card-badge">{badgeMessage}</span>}
                 <span className="hide dismiss-btn">X</span>
-                {/* <span className="rated-star rating-horizontal">
-                  {<RatingIcon className="rated rated-star rating-size" />}
-                  {rating}
-                </span> */}
                 <div className="hide overlay">
                   {inStock ? "" : "out of stock"}
                 </div>
