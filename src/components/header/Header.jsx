@@ -7,6 +7,7 @@ import {
   AddToWishlist,
   ShoppingCartIcon,
   UserIcon,
+  LogoutIcon,
 } from "../../Assets/Svg/allsvg";
 
 const Header = () => {
@@ -34,6 +35,9 @@ const Header = () => {
             />
           </div>
           <NavLinkUser svg={<UserIcon className="right-nav-img" />} />
+          <Link to="/logout">
+            <NavLinkItems svg={<LogoutIcon className="right-nav-img" />} />
+          </Link>
           <Link to="/wishlist">
             <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
           </Link>
