@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export const NavLinkUser = (props) => {
   return (
     <div className="single-action-btn profile">
@@ -6,10 +7,10 @@ export const NavLinkUser = (props) => {
       <div className="profile-menu">
         <li className="profile-dropdown">My Profile</li>
         <li className="profile-dropdown">
-          <a href="./components/login/login.html">Login</a>
+          <Link to="/login">Login</Link>
         </li>
         <li className="profile-dropdown">
-          <a href="./components/signup/signup.html">Signup</a>
+          <Link to="/signup">Signup</Link>
         </li>
       </div>
     </div>
