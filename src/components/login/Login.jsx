@@ -49,7 +49,7 @@ const Login = () => {
           </form>
           <p className="login-para">
             Not a user yet?
-            <Link className="login-link" to="../signup.jsx">
+            <Link className="login-link" to="/signup">
               Create your account
             </Link>
           </p>

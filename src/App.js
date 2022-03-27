@@ -6,6 +6,7 @@ import { Products } from "./components/products/Products";
 import { Wishlist } from "./components/wishlist/Wishlist";
 import { Cart } from "./components/cart/Cart";
 import { Login } from "./components/login/Login";
+import { Signup } from "./components/signup/Signup";
 
 import "./index.css";
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
     </>
