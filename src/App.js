@@ -5,6 +5,7 @@ import { Homepage } from "./components/homepage/Homepage";
 import { Products } from "./components/products/Products";
 import { Wishlist } from "./components/wishlist/Wishlist";
 import { Cart } from "./components/cart/Cart";
+import { Login } from "./components/login/Login";
 
 import "./index.css";
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </>

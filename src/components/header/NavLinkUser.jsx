@@ -11,7 +11,6 @@ export const NavLinkUser = (props) => {
         <li className="profile-dropdown">
           <a href="./components/signup/signup.html">Signup</a>
         </li>
-        <li className="profile-dropdown">Logout</li>
       </div>
     </div>
   );
