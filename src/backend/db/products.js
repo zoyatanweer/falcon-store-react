@@ -1,3 +1,9 @@
+import { v4 as uuid } from "uuid";
+
+/**
+ * Product Database can be added here.
+ * You can add products of your wish with different attributes
+ * */
 import {
   marvelDoodleTshirt,
   blackPantherHoodie,
@@ -14,11 +20,11 @@ import {
   avengersMug,
   logoTshirt,
   fullSleevesArcReactor,
-} from "../Assets";
+} from "../../Assets/index";
 
-const data = [
+export const products = [
   {
-    _id: 0,
+    _id: uuid(),
     name: "Grey T-shirt",
     description: "Casual grey colour t-shirt with marvel heroes doodle.",
     originalPrice: 1500,
@@ -33,7 +39,7 @@ const data = [
     rating: 4.5,
   },
   {
-    _id: 1,
+    _id: uuid(),
     name: "Black Panther Hoodie",
     description: "Black fitted hoodie with printed chain.",
     originalPrice: 2500,
@@ -48,7 +54,7 @@ const data = [
     rating: 5,
   },
   {
-    _id: 2,
+    _id: uuid(),
     name: "Loki mug",
     description: "Green and yellow mug with text",
     originalPrice: 600,
@@ -63,7 +69,7 @@ const data = [
     rating: 4.3,
   },
   {
-    _id: 3,
+    _id: uuid(),
     name: "Captain Marvel T-shirt",
     description: "Captain Marvel and Flerken tshirt",
     originalPrice: 1000,
@@ -78,7 +84,7 @@ const data = [
     rating: 4.4,
   },
   {
-    _id: 4,
+    _id: uuid(),
     name: "Black Panther keychain",
     description: "Black fitted hoodie with printed chain.",
     originalPrice: 400,
@@ -93,7 +99,7 @@ const data = [
     rating: 3.9,
   },
   {
-    _id: 5,
+    _id: uuid(),
     name: "Marvels' woman T-shirt",
     description: "She's got help tshirt",
     originalPrice: 1100,
@@ -108,7 +114,7 @@ const data = [
     rating: 4.0,
   },
   {
-    _id: 6,
+    _id: uuid(),
     name: "Full sleeves Tshirt",
     description: "Arc reactor grey color tshirt",
     originalPrice: 1100,
@@ -123,7 +129,7 @@ const data = [
     rating: 4.2,
   },
   {
-    _id: 7,
+    _id: uuid(),
     name: "Infinity War hoodie",
     description: "Full sleeves hoodie",
     originalPrice: 4000,
@@ -138,7 +144,7 @@ const data = [
     rating: 4.8,
   },
   {
-    _id: 8,
+    _id: uuid(),
     name: "Thor full sleeves T-shirt",
     originalPrice: 950,
     description: "Thor full sleeves tshirt ",
@@ -153,7 +159,7 @@ const data = [
     rating: 4.0,
   },
   {
-    _id: 9,
+    _id: uuid(),
     name: "Iron Man keychain",
     description: "Iron Man keychain",
     originalPrice: 400,
@@ -168,7 +174,7 @@ const data = [
     rating: 3.9,
   },
   {
-    _id: 10,
+    _id: uuid(),
     name: "Capt. America keychain",
     description: "Captain America keychain",
     originalPrice: 400,
@@ -183,7 +189,7 @@ const data = [
     rating: 4.5,
   },
   {
-    _id: 11,
+    _id: uuid(),
     name: "Spiderman hoodie",
     description: "Spiderman logo hoodie",
     originalPrice: 3500,
@@ -198,7 +204,7 @@ const data = [
     rating: 4.5,
   },
   {
-    _id: 12,
+    _id: uuid(),
     name: "Doctor Strange mug",
     description: "Dr Strange comics mug",
     originalPrice: 600,
@@ -213,7 +219,7 @@ const data = [
     rating: 2.8,
   },
   {
-    _id: 13,
+    _id: uuid(),
     name: "Avengers mug",
     description: "White printed avengers cup",
     originalPrice: 600,
@@ -228,7 +234,7 @@ const data = [
     rating: 1.9,
   },
   {
-    _id: 14,
+    _id: uuid(),
     name: "Black T-shirt",
     description: "Marvel logo black color tshirt",
     originalPrice: 900,
@@ -243,4 +249,3 @@ const data = [
     rating: 3.1,
   },
 ];
-export { data };

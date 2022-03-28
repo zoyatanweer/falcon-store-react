@@ -1,11 +1,13 @@
 import React from "react";
 import "./Products.css";
-import { data } from "../../data/data";
+// import { Products } from "../../data/data";
 import { PriceFilter, filters, Rating } from "./FilterSection";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
+import { useProduct } from "../../Context/data/Data-Context";
 
 //  filter section
 const Products = () => {
+  const { data } = useProduct();
   return (
     <>
       <div className="display-flex-filter">
