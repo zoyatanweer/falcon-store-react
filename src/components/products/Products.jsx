@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Products.css";
-// import { Products } from "../../data/data";
 import { PriceFilter, filters, Rating } from "./FilterSection";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
 import { useProduct } from "../../Context/data/Data-Context";
+import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
+import { useCart } from "../../Context/Cart/Cart-Context";
 
 //  filter section
 const Products = () => {
@@ -20,6 +22,19 @@ const Products = () => {
           </div>
           <ul className="filter-section">
             <div className="filter-divider"></div>
+            <li className="filter-section-title">PRICE RANGE</li>
+            <div class="slidecontainer">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                value="50"
+                class="slider"
+                id="myRange"
+              />
+            </div>
+            <div className="filter-divider"></div>
+
             <li className="filter-section-title">SORT</li>
             {PriceFilter.map((priceFilterItem) => {
               const { priceName, value } = priceFilterItem;
@@ -99,6 +114,12 @@ const Products = () => {
               rating,
               categoryName,
             } = item;
+
+            const { wishlistToggleHandler, wishlist } = useWishlist();
+            const { cartToggleHandler, cart } = useCart();
+            const isInCart =
+              cart.findIndex((i) => i._id === item._id) === -1 ? false : true;
+            const navigate = useNavigate();
             return (
               <div className="card-vertical" key={_id}>
                 <div className="card-picture">
@@ -124,12 +145,33 @@ const Products = () => {
                     {hasDiscount && (
                       <span className="striken-text"> ₹{originalPrice}</span>
                     )}
+                    <span class="discount-percent">
+                      {`${(
+                        ((originalPrice - discountPrice) / originalPrice) *
+                        100
+                      ).toFixed()}% OFF
+                      `}
+                    </span>
                   </p>
                   <div className="card-container-action">
-                    <button className="btn-cart">
-                      <i className="fas fa-shopping-cart"></i>Add to cart
+                    <button
+                      className="btn-cart"
+                      onClick={
+                        isInCart
+                          ? () => navigate("/cart")
+                          : () => {
+                              cartToggleHandler(item);
+                            }
+                      }
+                    >
+                      <i className="fas fa-shopping-cart"></i>
+                      {isInCart ? "Go to cart" : "Add to cart"}
                     </button>
-                    <button className="heart-btn">
+
+                    <button
+                      className="heart-btn"
+                      onClick={() => wishlistToggleHandler(item)}
+                    >
                       {<AddToWishlist className="far fa-heart" />}
                     </button>
                     <button className="share-btn">{<ShareIcon />}</button>

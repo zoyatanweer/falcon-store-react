@@ -1,16 +1,23 @@
 import React from "react";
 import "./Cart.css";
-import { CartData } from "./CartData";
+import { useCart } from "../../Context/Cart/Cart-Context";
 import { CartTotal } from "./CartTotal";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
+import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
 // cart section
 const Cart = () => {
+  const {
+    cart,
+    removeFromCartHandler,
+    increaseQuantityHandler,
+    decreaseQuantityHandler,
+  } = useCart();
   return (
     <div className="display-cart-section">
       <div className="grid-3-column-layout-cart">
         {/* card 1 */}
-        {CartData.map((item) => {
+        {cart.map((item) => {
           const {
             _id,
             name,
@@ -25,7 +32,10 @@ const Cart = () => {
             fastDelivery,
             rating,
             categoryName,
+            qty,
           } = item;
+          const { wishlistToggleHandler } = useWishlist();
+
           return (
             <div className="card-horizontal" key={_id}>
               <div className="card-picture">
@@ -53,9 +63,23 @@ const Cart = () => {
                     <br />
                     <span class="qty-product">
                       Qty:
-                      <button class="btn qty-decrease">-</button>
-                      <input class="qty-number" type="number" min="1" />
-                      <button class="btn qty-increase">+</button>
+                      <button
+                        className={` btn qty-decrease ${
+                          qty > 1 ? "" : "btn-disabled"
+                        } `}
+                        onClick={
+                          qty > 1 ? () => decreaseQuantityHandler(item) : null
+                        }
+                      >
+                        -
+                      </button>
+                      {qty}
+                      <button
+                        className="btn qty-increase"
+                        onClick={() => increaseQuantityHandler(item)}
+                      >
+                        +
+                      </button>
                     </span>
                   </div>
                   <div className="card-hori-div2">
@@ -66,10 +90,16 @@ const Cart = () => {
                   </div>
                 </p>
                 <div className="card-container-action">
-                  <button className="btn-cart">
-                    <i className="fas fa-shopping-cart"></i>Add to cart
+                  <button
+                    className="btn-cart font-size-cart"
+                    onClick={() => removeFromCartHandler(item)}
+                  >
+                    <i className="fas fa-shopping-cart"></i>Remove from cart
                   </button>
-                  <button className="heart-btn">
+                  <button
+                    className="heart-btn"
+                    onClick={() => wishlistToggleHandler(item)}
+                  >
                     {<AddToWishlist className="far fa-heart" />}
                   </button>
                   <button className="share-btn">{<ShareIcon />}</button>

@@ -21,21 +21,6 @@
   margin-top: 4rem;
 }
 
-/* badge-on wishlist */
-.btn-icon-wishlist,
-.btn-icon-cart {
-  background-color: var(--primary-color);
-  border: solid var(--primary-color);
-  color: var(--background-color);
-  font-size: 1.5rem;
-  height: 2rem;
-  width: 2rem;
-  position: absolute;
-  top: -3px;
-  right: 0;
-  left: 18px;
-}
-
 /* checkout-button */
 .btn-checkout {
   background-color: var(--primary-color);

@@ -1,9 +1,14 @@
 import React from "react";
 import "./Wishlist.css";
-import { WishlistData } from "./WishlistData";
+// import { WishlistData } from "./WishlistData";
+import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
+import { useCart } from "../../Context/Cart/Cart-Context";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
 
 const Wishlist = () => {
+  const { wishlist, wishlistToggleHandler } = useWishlist();
+  const { cartToggleHandler } = useCart();
+
   return (
     <div class="wishlist-section">
       <div class="wishlist-title">
@@ -12,8 +17,7 @@ const Wishlist = () => {
       </div>
       <div class="wishlist-products">
         {/* card in react */}
-
-        {WishlistData.map((item) => {
+        {wishlist.map((item) => {
           const {
             _id,
             name,
@@ -54,10 +58,16 @@ const Wishlist = () => {
                   )}
                 </p>
                 <div className="card-container-action">
-                  <button className="btn-cart">
+                  <button
+                    className="btn-cart"
+                    onClick={() => cartToggleHandler(item)}
+                  >
                     <i className="fas fa-shopping-cart"></i>Add to cart
                   </button>
-                  <button className="heart-btn">
+                  <button
+                    className="heart-btn"
+                    onClick={() => wishlistToggleHandler(item)}
+                  >
                     {<AddToWishlist className="far fa-heart" />}
                   </button>
                   <button className="share-btn">{<ShareIcon />}</button>

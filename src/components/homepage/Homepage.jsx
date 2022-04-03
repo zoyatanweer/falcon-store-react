@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Homepage.css";
 import { CategoriesIcon } from "../../Assets/Svg/allsvg";
 import { FeaturedItems } from "../index";
@@ -18,9 +19,9 @@ const Homepage = () => {
           <h2 className="homepage-desc">
             Upto <span className="homepage-span">50% off</span> on the products
           </h2>
-          <a href="./components/products/products.html">
+          <Link to="/products">
             <button className="btn btn-primary shop-btn">SHOP NOW</button>
-          </a>
+          </Link>
         </div>
         <img className="image-cover" src={homeImage} alt="homepage cover" />
       </section>
