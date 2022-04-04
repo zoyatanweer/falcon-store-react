@@ -24,3 +24,34 @@
   cursor: pointer;
   font-weight: 900;
 }
+
+.single-action-btn {
+  position: relative;
+}
+.right-nav-img:hover {
+  fill: var(--primary-color);
+}
+
+/* badge-on wishlist */
+.btn-icon-wishlist,
+.btn-icon-cart {
+  background-color: var(--primary-color);
+  border: solid var(--primary-color);
+  color: var(--background-color);
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  /* top: -3px;
+  right: 0;
+  left: 18px; */
+}
+.btn-icon-wishlist {
+  left: 111.7rem;
+  top: 1.3rem;
+}
+
+.btn-icon-cart {
+  left: 117.2rem;
+  top: 1.3rem;
+}

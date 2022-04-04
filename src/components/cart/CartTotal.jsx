@@ -1,6 +1,7 @@
 import { CartData } from "./CartData";
 import cartSection from "../../Assets/Images/cartSection.png";
 import { useEffect, useState } from "react";
+import { useCart } from "../../Context/Cart/Cart-Context";
 
 const CartTotal = () => {
   const [priceDetails, setPriceDetails] = useState({

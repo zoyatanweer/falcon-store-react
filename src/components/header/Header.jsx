@@ -9,8 +9,13 @@ import {
   UserIcon,
   LogoutIcon,
 } from "../../Assets/Svg/allsvg";
+import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
+import { useCart } from "../../Context/Cart/Cart-Context";
+import { CartProvider } from "../../Context/Cart/Cart-Context";
 
 const Header = () => {
+  const { wishlist } = useWishlist();
+  const { cart, initialValue } = useCart();
   return (
     <nav className="navigation-container">
       <div className="nav-brand">Falcon Store</div>
@@ -34,17 +39,27 @@ const Header = () => {
               placeholder="Search for products"
             />
           </div>
-          <NavLinkUser svg={<UserIcon className="right-nav-img" />} />
-          <Link to="/logout">
-            <NavLinkItems svg={<LogoutIcon className="right-nav-img" />} />
-          </Link>
+          <NavLinkUser
+            svg={<UserIcon className="right-nav-img single-action-btn" />}
+          />
           <Link to="/wishlist">
             <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
+            <button className="btn-icon btn-icon-wishlist">
+              {wishlist.length}
+            </button>
           </Link>
           <Link to="/cart">
             <NavLinkItems
-              svg={<ShoppingCartIcon className="right-nav-img" />}
+              svg={
+                <ShoppingCartIcon className="right-nav-img single-action-btn" />
+              }
             />
+            <button className="btn-icon btn-icon-cart">
+              {cart.reduce((acc, curr) => acc + curr.qty, 0)}
+            </button>
+          </Link>
+          <Link to="/logout">
+            <NavLinkItems svg={<LogoutIcon className="right-nav-img" />} />
           </Link>
         </div>
       </div>
