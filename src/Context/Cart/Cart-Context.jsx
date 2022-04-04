@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
@@ -7,7 +7,7 @@ const CartProvider = ({ children }) => {
   const [increaseQuantity, setIncreasedQuantity] = useState(1);
   const [decreaseQuantity, setDecreasedQuantity] = useState(1);
 
-  const cartToggleHandler = (product) => {
+  const addToCartHandler = (product) => {
     setCart((prevList) => {
       const index = prevList.findIndex((item) => item._id === product._id);
       return index === -1
@@ -25,18 +25,12 @@ const CartProvider = ({ children }) => {
     });
   };
 
-  const increaseQuantityHandler = (product) => {
+  const changeQuantityHandler = (product, quantity) => {
     setCart((prevList) =>
       prevList.map((p) => {
-        return p._id === product._id ? { ...product, qty: p.qty + 1 } : p;
-      })
-    );
-  };
-
-  const decreaseQuantityHandler = (product) => {
-    setCart((prevList) =>
-      prevList.map((p) => {
-        return p._id === product._id ? { ...product, qty: p.qty - 1 } : p;
+        return p._id === product._id
+          ? { ...product, qty: p.qty + quantity }
+          : p;
       })
     );
   };
@@ -45,10 +39,9 @@ const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cart,
-        cartToggleHandler,
+        addToCartHandler,
         removeFromCartHandler,
-        increaseQuantityHandler,
-        decreaseQuantityHandler,
+        changeQuantityHandler,
       }}
     >
       {children}

@@ -1,8 +1,6 @@
 import React from "react";
 import "./Wishlist.css";
-// import { WishlistData } from "./WishlistData";
-import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
-import { useCart } from "../../Context/Cart/Cart-Context";
+import { useWishlist, useCart } from "../index";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
 
 const Wishlist = () => {
@@ -13,7 +11,9 @@ const Wishlist = () => {
     <div class="wishlist-section">
       <div class="wishlist-title">
         WISHLIST
-        <div class="wishlisted-total">Total items in wishlist - 4</div>
+        <div class="wishlisted-total">
+          Total items in wishlist - {`${wishlist.length}`}
+        </div>
       </div>
       <div class="wishlist-products">
         {/* card in react */}

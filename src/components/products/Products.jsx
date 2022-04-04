@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Products.css";
+import { useCart, useWishlist } from "../index";
 import { PriceFilter, filters, Rating } from "./FilterSection";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
 import { useProduct } from "../../Context/data/Data-Context";
-import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
-import { useCart } from "../../Context/Cart/Cart-Context";
 
 //  filter section
 const Products = () => {
@@ -116,7 +115,7 @@ const Products = () => {
             } = item;
 
             const { wishlistToggleHandler, wishlist } = useWishlist();
-            const { cartToggleHandler, cart } = useCart();
+            const { addToCartHandler, cart } = useCart();
             const isInCart =
               cart.findIndex((i) => i._id === item._id) === -1 ? false : true;
             const navigate = useNavigate();
@@ -160,7 +159,7 @@ const Products = () => {
                         isInCart
                           ? () => navigate("/cart")
                           : () => {
-                              cartToggleHandler(item);
+                              addToCartHandler(item);
                             }
                       }
                     >

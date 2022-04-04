@@ -60,7 +60,6 @@ const Header = () => {
           </Link>
           <Link to="/logout">
             <NavLinkItems svg={<LogoutIcon className="right-nav-img" />} />
-            {/* <button class="btn-icon btn-icon-cart">3</button> */}
           </Link>
         </div>
       </div>

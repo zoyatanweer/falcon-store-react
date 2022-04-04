@@ -1,18 +1,12 @@
 import React from "react";
 import "./Cart.css";
-import { useCart } from "../../Context/Cart/Cart-Context";
+import { useWishlist, useCart } from "../index";
 import { CartTotal } from "./CartTotal";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
-import { useWishlist } from "../../Context/Wishlist/Wishlist-Context";
 
 // cart section
 const Cart = () => {
-  const {
-    cart,
-    removeFromCartHandler,
-    increaseQuantityHandler,
-    decreaseQuantityHandler,
-  } = useCart();
+  const { cart, removeFromCartHandler, changeQuantityHandler } = useCart();
   return (
     <div className="display-cart-section">
       <div className="grid-3-column-layout-cart">
@@ -68,7 +62,7 @@ const Cart = () => {
                           qty > 1 ? "" : "btn-disabled"
                         } `}
                         onClick={
-                          qty > 1 ? () => decreaseQuantityHandler(item) : null
+                          qty > 1 ? () => changeQuantityHandler(item, -1) : null
                         }
                       >
                         -
@@ -76,7 +70,7 @@ const Cart = () => {
                       {qty}
                       <button
                         className="btn qty-increase"
-                        onClick={() => increaseQuantityHandler(item)}
+                        onClick={() => changeQuantityHandler(item, 1)}
                       >
                         +
                       </button>
