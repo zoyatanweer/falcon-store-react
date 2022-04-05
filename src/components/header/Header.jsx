@@ -56,6 +56,7 @@ const Header = () => {
             />
             <button className="btn-icon btn-icon-cart">
               {cart.reduce((acc, curr) => acc + curr.qty, 0)}
+              {/* {cart.length} */}
             </button>
           </Link>
           <Link to="/logout">
