@@ -1,18 +1,41 @@
-import React, { createContext, useContext, useState } from "react";
-
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { useAxios } from "../Auth/UseAxios";
 const WishlistContext = createContext();
 
 const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
+  const {
+    response: wishlistResponse,
+    operation: fetchWishlist,
+    loading: loadingWishlist,
+  } = useAxios();
+
+  useEffect(() => {
+    if (wishlistResponse != undefined) {
+      setWishlist(wishlistResponse.wishlist);
+    }
+  }, [wishlistResponse]);
 
   const wishlistToggleHandler = (product) => {
-    setWishlist((prevList) => {
-      const index =
-        prevList.findIndex((item) => item._id === product._id) === -1;
-      return index
-        ? [...prevList, product]
-        : prevList.filter((p) => p._id !== product._id);
-    });
+    const index = wishlist.findIndex((item) => item._id === product._id) === -1;
+    index
+      ? fetchWishlist({
+          method: "post",
+          url: "/api/user/wishlist",
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+          data: {
+            product: product,
+          },
+        })
+      : fetchWishlist({
+          method: "delete",
+          url: `/api/user/wishlist/${product._id}`,
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        });
   };
 
   return (

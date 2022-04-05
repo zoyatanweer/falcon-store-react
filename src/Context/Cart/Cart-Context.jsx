@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { useAxios } from "../Auth/UseAxios";
 
 const CartContext = createContext();
 
@@ -6,35 +7,63 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [increaseQuantity, setIncreasedQuantity] = useState(1);
   const [decreaseQuantity, setDecreasedQuantity] = useState(1);
+  const {
+    response: cartResponse,
+    operation: fetchCart,
+    loading: loadingCart,
+  } = useAxios();
+
+  useEffect(() => {
+    if (cartResponse != undefined) {
+      setCart(cartResponse.cart);
+      console.log(cartResponse);
+    }
+  }, [cartResponse]);
 
   const addToCartHandler = (product) => {
-    setCart((prevList) => {
-      const index = prevList.findIndex((item) => item._id === product._id);
-      return index === -1
-        ? [...prevList, { ...product, qty: 1 }]
-        : [...prevList];
-    });
+    cart.findIndex((item) => item._id === product._id) === -1 &&
+      fetchCart({
+        method: "post",
+        url: "/api/user/cart",
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+        data: {
+          product: product,
+        },
+      });
   };
 
   const removeFromCartHandler = (product) => {
-    setCart((prevList) => {
-      const index = prevList.findIndex((item) => item._id === product._id);
-      return index === -1
-        ? [...prevList, product]
-        : prevList.filter((p) => p._id !== product._id);
-    });
+    console.log("hi", product);
+    cart.findIndex((item) => item._id === product._id) !== -1 &&
+      fetchCart({
+        method: "delete",
+        url: `/api/user/cart/${product._id}`,
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+        data: {
+          product: product,
+        },
+      });
   };
 
   const changeQuantityHandler = (product, quantity) => {
-    setCart((prevList) =>
-      prevList.map((p) => {
-        return p._id === product._id
-          ? { ...product, qty: p.qty + quantity }
-          : p;
-      })
-    );
+    console.log(cartResponse);
+    fetchCart({
+      method: "post",
+      url: `/api/user/cart/${product._id}`,
+      headers: {
+        authorization: localStorage.getItem("token"),
+      },
+      data: {
+        action: {
+          type: quantity > 0 ? "increment" : "decrement",
+        },
+      },
+    });
   };
-
   return (
     <CartContext.Provider
       value={{
@@ -48,6 +77,5 @@ const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
-
 const useCart = () => useContext(CartContext);
 export { useCart, CartProvider };
