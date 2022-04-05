@@ -35,10 +35,11 @@ const CartProvider = ({ children }) => {
   };
 
   const removeFromCartHandler = (product) => {
-    !!cart.findIndex((item) => item._id === product._id) === -1 &&
+    console.log("hi", product);
+    cart.findIndex((item) => item._id === product._id) !== -1 &&
       fetchCart({
         method: "delete",
-        url: `/api/user/cart/${product.productId}`,
+        url: `/api/user/cart/${product._id}`,
         headers: {
           authorization: localStorage.getItem("token"),
         },
@@ -52,7 +53,7 @@ const CartProvider = ({ children }) => {
     console.log(cartResponse);
     fetchCart({
       method: "post",
-      url: `/api/user/cart/${product.productId}`,
+      url: `/api/user/cart/${product._id}`,
       headers: {
         authorization: localStorage.getItem("token"),
       },
