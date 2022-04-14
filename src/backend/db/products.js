@@ -35,8 +35,8 @@ export const products = [
     imageSrc: marvelDoodleTshirt,
     inStock: true,
     fastDelivery: true,
-    categoryName: "T-shirt",
-    rating: 4.5,
+    categoryName: "tshirt",
+    ratings: 4.5,
   },
   {
     _id: uuid(),
@@ -51,7 +51,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "hoodie",
-    rating: 5,
+    ratings: 5,
   },
   {
     _id: uuid(),
@@ -66,7 +66,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "mug",
-    rating: 4.3,
+    ratings: 4.3,
   },
   {
     _id: uuid(),
@@ -81,7 +81,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "tshirt",
-    rating: 4.4,
+    ratings: 4.4,
   },
   {
     _id: uuid(),
@@ -96,7 +96,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "keychain",
-    rating: 3.9,
+    ratings: 3.9,
   },
   {
     _id: uuid(),
@@ -111,7 +111,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "tshirt",
-    rating: 4.0,
+    ratings: 4.0,
   },
   {
     _id: uuid(),
@@ -125,8 +125,8 @@ export const products = [
     imageSrc: fullSleevesArcReactor,
     inStock: true,
     fastDelivery: true,
-    categoryName: "full sleeves tshirt",
-    rating: 4.2,
+    categoryName: "full sleeves",
+    ratings: 4.2,
   },
   {
     _id: uuid(),
@@ -141,7 +141,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "hoodie",
-    rating: 4.8,
+    ratings: 4.8,
   },
   {
     _id: uuid(),
@@ -155,8 +155,8 @@ export const products = [
     imageSrc: fullSleevesThor,
     inStock: true,
     fastDelivery: true,
-    categoryName: "tshirt",
-    rating: 4.0,
+    categoryName: "full sleeves",
+    ratings: 4.0,
   },
   {
     _id: uuid(),
@@ -170,8 +170,8 @@ export const products = [
     imageSrc: ironManKeychain,
     inStock: true,
     fastDelivery: true,
-    categoryName: "tshirt",
-    rating: 3.9,
+    categoryName: "keychain",
+    ratings: 3.9,
   },
   {
     _id: uuid(),
@@ -186,7 +186,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "keychain",
-    rating: 4.5,
+    ratings: 4.5,
   },
   {
     _id: uuid(),
@@ -200,8 +200,8 @@ export const products = [
     imageSrc: spidermanHoodie,
     inStock: true,
     fastDelivery: true,
-    categoryName: "tshirt",
-    rating: 4.5,
+    categoryName: "hoodie",
+    ratings: 4.5,
   },
   {
     _id: uuid(),
@@ -216,7 +216,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "mug",
-    rating: 2.8,
+    ratings: 2.8,
   },
   {
     _id: uuid(),
@@ -231,7 +231,7 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     categoryName: "mug",
-    rating: 1.9,
+    ratings: 1.9,
   },
   {
     _id: uuid(),
@@ -246,6 +246,6 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     categoryName: "tshirt",
-    rating: 3.1,
+    ratings: 3.1,
   },
 ];

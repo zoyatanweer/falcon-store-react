@@ -28,6 +28,9 @@
 .single-action-btn {
   position: relative;
 }
+/* .right-nav-img {
+  position: relative;
+} */
 .right-nav-img:hover {
   fill: var(--primary-color);
 }

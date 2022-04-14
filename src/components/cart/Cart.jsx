@@ -23,8 +23,7 @@ const Cart = () => {
             badgeMessage,
             imageSrc,
             inStock,
-            fastDelivery,
-            rating,
+            ratings,
             categoryName,
             qty,
           } = item;
@@ -79,7 +78,7 @@ const Cart = () => {
                   <div className="card-hori-div2">
                     <span className="rated-star rating-horizontal">
                       {<RatingIcon className="rated rated-star rating-size" />}
-                      {rating}
+                      {ratings}
                     </span>
                   </div>
                 </p>

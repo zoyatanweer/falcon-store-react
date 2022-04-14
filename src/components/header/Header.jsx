@@ -30,38 +30,44 @@ const Header = () => {
         </Link>
       </li>
       <div className="right-nav">
-        <div className="desktop-action-btn">
-          <div className="desktop-query">
-            <SearchIcon className="right-nav-img img-search"></SearchIcon>
-            <input
-              className="desktop-searchbar"
-              type="text"
-              placeholder="Search for products"
-            />
-          </div>
-          <NavLinkUser
-            svg={<UserIcon className="right-nav-img single-action-btn" />}
+        <div className="desktop-query">
+          <SearchIcon className="right-nav-img img-search"></SearchIcon>
+          <input
+            className="desktop-searchbar"
+            type="text"
+            placeholder="Search for products"
           />
+        </div>
+        <div className="desktop-action-btn">
+          {/* <div className="single-action-btn"> */}
+          <NavLinkUser svg={<UserIcon className="right-nav-img" />} />
+          {/* </div> */}
+          {/* <div className="single-action-btn"> */}
           <Link to="/wishlist">
             <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
             <button className="btn-icon btn-icon-wishlist">
               {wishlist.length}
             </button>
           </Link>
+          {/* </div> */}
+
+          {/* <div className="single-action-btn"> */}
           <Link to="/cart">
             <NavLinkItems
-              svg={
-                <ShoppingCartIcon className="right-nav-img single-action-btn" />
-              }
+              className="single-action-btn"
+              svg={<ShoppingCartIcon className="right-nav-img" />}
             />
             <button className="btn-icon btn-icon-cart">
               {cart.reduce((acc, curr) => acc + curr.qty, 0)}
               {/* {cart.length} */}
             </button>
           </Link>
+          {/* </div> */}
+          {/* <div className="single-action-btn"> */}
           <Link to="/logout">
             <NavLinkItems svg={<LogoutIcon className="right-nav-img" />} />
           </Link>
+          {/* </div> */}
         </div>
       </div>
     </nav>
