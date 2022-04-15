@@ -99,7 +99,6 @@ const Filter = () => {
                 onClick={() =>
                   FilterDispatch({
                     type: "INCLUDE_OUT_OF_STOCK",
-                    payload: false,
                   })
                 }
               />

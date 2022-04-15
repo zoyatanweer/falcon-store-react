@@ -12,17 +12,28 @@
   color: var(--background-color);
   position: absolute;
   right: 0;
-  width: 10rem;
+  /* width: 10rem; */
+  width: auto;
+  height: 5rem;
+  padding: 0;
   display: none;
   z-index: 3;
   transition: width 2s;
 }
 .profile:hover .profile-menu {
-  display: block;
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
   background-color: var(--background-color);
   color: var(--secondary-color);
   cursor: pointer;
   font-weight: 900;
+}
+.right-nav li {
+  padding: 0;
+  width: 10rem;
 }
 
 .single-action-btn {
@@ -45,16 +56,16 @@
   height: 2rem;
   width: 2rem;
   position: absolute;
-  /* top: -3px;
+  top: -3px;
   right: 0;
-  left: 18px; */
+  left: 18px;
 }
-.btn-icon-wishlist {
+/* .btn-icon-wishlist {
   left: 111.7rem;
   top: 1.3rem;
-}
+} */
 
-.btn-icon-cart {
+/* .btn-icon-cart {
   left: 117.2rem;
   top: 1.3rem;
-}
+} */

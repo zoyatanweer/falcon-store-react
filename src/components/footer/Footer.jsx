@@ -1,6 +1,12 @@
 import React from "react";
 import "./Footer.css";
-import { CopyrightIcon } from "../../Assets/Svg/allsvg";
+import { Link } from "react-router-dom";
+import {
+  CopyrightIcon,
+  GithubIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "../../Assets/Svg/allsvg";
 
 {
   /* footer  */
@@ -16,22 +22,19 @@ const Footer = () => {
           Contact me
           <ul>
             <li className="list-item footer-item list-non-bullet">
-              <a className="link" href="https://github.com/zoyatanweer">
-                github
-              </a>
+              <Link to="/https://github.com/zoyatanweer">
+                <GithubIcon className="link single-item-footer" />
+              </Link>
             </li>
             <li className="list-item footer-item list-non-bullet">
-              <a
-                className="link"
-                href="https://www.linkedin.com/in/zoya-tanweer-9440431b9/"
-              >
-                linkedin
-              </a>
+              <Link to="https://www.linkedin.com/in/zoya-tanweer-9440431b9/">
+                <LinkedinIcon className="link single-item-footer" />
+              </Link>
             </li>
             <li className="list-item footer-item list-non-bullet">
-              <a className="link" href="https://twitter.com/ItsZoya28">
-                twitter
-              </a>
+              <Link to="https://twitter.com/ItsZoya28">
+                <TwitterIcon className="link single-item-footer" />
+              </Link>
             </li>
           </ul>
           <br />

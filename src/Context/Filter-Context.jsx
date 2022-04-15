@@ -74,7 +74,8 @@ const reducerFunc = (state, action) => {
     case "CATEGORIES":
       return {
         ...state,
-        categoryName: action.payload,
+        // categoryName: action.payload,
+        categoryName: state.categoryName,
       };
     // return {
     //   ...state,
@@ -94,7 +95,8 @@ const reducerFunc = (state, action) => {
     case "INCLUDE_OUT_OF_STOCK":
       return {
         ...state,
-        includeOutOfStock: action.payload,
+        // includeOutOfStock: action.payload,
+        includeOutOfStock: !state.includeOutOfStock,
       };
     case "SEARCH":
       return {

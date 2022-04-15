@@ -18,7 +18,9 @@ const Header = () => {
   const { cart, initialValue } = useCart();
   return (
     <nav className="navigation-container">
-      <div className="nav-brand">Falcon Store</div>
+      <div className="nav-brand">
+        <Link to="/">Falcon Store</Link>
+      </div>
       <li className="list-item list-non-bullet">
         <Link className="link link-active" to="/">
           HOME
@@ -40,33 +42,37 @@ const Header = () => {
         </div>
         <div className="desktop-action-btn">
           {/* <div className="single-action-btn"> */}
-          <NavLinkUser svg={<UserIcon className="right-nav-img" />} />
+
           {/* </div> */}
-          {/* <div className="single-action-btn"> */}
-          <Link to="/wishlist">
-            <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
-            <button className="btn-icon btn-icon-wishlist">
-              {wishlist.length}
-            </button>
-          </Link>
-          {/* </div> */}
+          <div className="single-action-btn">
+            <Link to="/wishlist">
+              <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
+              <button className="btn-icon btn-icon-wishlist">
+                {wishlist.length}
+              </button>
+            </Link>
+          </div>
+
+          <div className="single-action-btn">
+            <Link to="/cart">
+              <NavLinkItems
+                className="single-action-btn"
+                svg={<ShoppingCartIcon className="right-nav-img" />}
+              />
+              <button className="btn-icon btn-icon-cart">
+                {cart.reduce((acc, curr) => acc + curr.qty, 0)}
+              </button>
+            </Link>
+          </div>
+          <NavLinkUser
+            className="profile-menu"
+            svg={<UserIcon className="right-nav-img" />}
+          />
 
           {/* <div className="single-action-btn"> */}
-          <Link to="/cart">
-            <NavLinkItems
-              className="single-action-btn"
-              svg={<ShoppingCartIcon className="right-nav-img" />}
-            />
-            <button className="btn-icon btn-icon-cart">
-              {cart.reduce((acc, curr) => acc + curr.qty, 0)}
-              {/* {cart.length} */}
-            </button>
-          </Link>
-          {/* </div> */}
-          {/* <div className="single-action-btn"> */}
-          <Link to="/logout">
+          {/* <Link to="/logout">
             <NavLinkItems svg={<LogoutIcon className="right-nav-img" />} />
-          </Link>
+          </Link> */}
           {/* </div> */}
         </div>
       </div>

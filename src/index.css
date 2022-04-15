@@ -103,6 +103,7 @@ body {
 .nav-brand {
   text-align: left;
   margin: 1rem auto 1rem 4.8rem;
+  cursor: pointer;
 }
 .navigation-container .link {
   background-color: var(--background-color);
