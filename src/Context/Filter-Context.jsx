@@ -74,8 +74,8 @@ const reducerFunc = (state, action) => {
     case "CATEGORIES":
       return {
         ...state,
-        // categoryName: action.payload,
-        categoryName: state.categoryName,
+        categoryName: action.payload,
+        // categoryName: state.categoryName,
       };
     // return {
     //   ...state,
