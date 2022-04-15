@@ -10,7 +10,10 @@ export const NavLinkUser = (props) => {
           <Link to="/login">Login</Link>
         </li>
         <li className="profile-dropdown">
-          <Link to="/signup">Signup</Link>
+          <Link to="/signup">Sign Up</Link>
+        </li>
+        <li className="profile-dropdown">
+          <Link to="/logout">Logout</Link>
         </li>
       </div>
     </div>

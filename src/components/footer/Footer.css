@@ -9,6 +9,9 @@
   height: 16rem;
   padding: 12rem;
   text-align: center;
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
 }
 .footer-title {
   font-weight: 400;
@@ -16,6 +19,18 @@
 }
 .footer-contact {
   font-weight: 400;
+  text-align: center;
+}
+.single-item-footer {
+  display: inline-block;
+  justify-content: center;
+
+  font-size: 2.8rem;
+}
+.single-item-footer-title {
+  display: flex;
+
+  justify-content: center;
 }
 .footer-item:hover {
   color: var(--primary-color);

@@ -14,7 +14,7 @@ const ProductDataProvider = ({ children }) => {
     try {
       const response = await axios.get("/api/products");
       const responseData = [...response.data.products];
-      setData((previous) => (previous = responseData));
+      setData(responseData);
     } catch (e) {
       console.log(e);
     }

@@ -18,7 +18,9 @@ const Header = () => {
   const { cart, initialValue } = useCart();
   return (
     <nav className="navigation-container">
-      <div className="nav-brand">Falcon Store</div>
+      <div className="nav-brand">
+        <Link to="/">Falcon Store</Link>
+      </div>
       <li className="list-item list-non-bullet">
         <Link className="link link-active" to="/">
           HOME
@@ -30,38 +32,48 @@ const Header = () => {
         </Link>
       </li>
       <div className="right-nav">
+        <div className="desktop-query">
+          <SearchIcon className="right-nav-img img-search"></SearchIcon>
+          <input
+            className="desktop-searchbar"
+            type="text"
+            placeholder="Search for products"
+          />
+        </div>
         <div className="desktop-action-btn">
-          <div className="desktop-query">
-            <SearchIcon className="right-nav-img img-search"></SearchIcon>
-            <input
-              className="desktop-searchbar"
-              type="text"
-              placeholder="Search for products"
-            />
+          {/* <div className="single-action-btn"> */}
+
+          {/* </div> */}
+          <div className="single-action-btn">
+            <Link to="/wishlist">
+              <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
+              <button className="btn-icon btn-icon-wishlist">
+                {wishlist.length}
+              </button>
+            </Link>
+          </div>
+
+          <div className="single-action-btn">
+            <Link to="/cart">
+              <NavLinkItems
+                className="single-action-btn"
+                svg={<ShoppingCartIcon className="right-nav-img" />}
+              />
+              <button className="btn-icon btn-icon-cart">
+                {cart.reduce((acc, curr) => acc + curr.qty, 0)}
+              </button>
+            </Link>
           </div>
           <NavLinkUser
-            svg={<UserIcon className="right-nav-img single-action-btn" />}
+            className="profile-menu"
+            svg={<UserIcon className="right-nav-img" />}
           />
-          <Link to="/wishlist">
-            <NavLinkItems svg={<AddToWishlist className="right-nav-img" />} />
-            <button className="btn-icon btn-icon-wishlist">
-              {wishlist.length}
-            </button>
-          </Link>
-          <Link to="/cart">
-            <NavLinkItems
-              svg={
-                <ShoppingCartIcon className="right-nav-img single-action-btn" />
-              }
-            />
-            <button className="btn-icon btn-icon-cart">
-              {cart.reduce((acc, curr) => acc + curr.qty, 0)}
-              {/* {cart.length} */}
-            </button>
-          </Link>
-          <Link to="/logout">
+
+          {/* <div className="single-action-btn"> */}
+          {/* <Link to="/logout">
             <NavLinkItems svg={<LogoutIcon className="right-nav-img" />} />
-          </Link>
+          </Link> */}
+          {/* </div> */}
         </div>
       </div>
     </nav>

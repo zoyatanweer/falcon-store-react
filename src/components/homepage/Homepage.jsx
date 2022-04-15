@@ -36,10 +36,18 @@ const Homepage = () => {
         </h1>
 
         <div className="featured-product-type">
-          <FeaturedItems src={tshirt} title="Tshirts" />
-          <FeaturedItems src={hoodies} title="Hoodies" />
-          <FeaturedItems src={keychains} title="Keychains" />
-          <FeaturedItems src={mugs} title="Mugs" />
+          <FeaturedItems src={tshirt} title="Tshirts" categoryName={"tshirt"} />
+          <FeaturedItems
+            src={hoodies}
+            title="Hoodies"
+            categoryName={"hoodie"}
+          />
+          <FeaturedItems
+            src={keychains}
+            title="Keychains"
+            categoryName={"keychain"}
+          />
+          <FeaturedItems src={mugs} title="Mugs" categoryName={"mug"} />
         </div>
       </section>
     </>

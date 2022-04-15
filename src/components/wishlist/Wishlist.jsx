@@ -30,7 +30,7 @@ const Wishlist = () => {
             imageSrc,
             inStock,
             fastDelivery,
-            rating,
+            ratings,
             categoryName,
           } = item;
           return (
@@ -41,7 +41,7 @@ const Wishlist = () => {
                 <span className="hide dismiss-btn">X</span>
                 <span className="card-rating rated-star">
                   {<RatingIcon className="rated rated-star rating-size" />}
-                  {rating}
+                  {ratings}
                 </span>
                 <div className="hide overlay">
                   {inStock ? "" : "out of stock"}

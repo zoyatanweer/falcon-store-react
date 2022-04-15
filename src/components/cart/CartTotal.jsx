@@ -1,9 +1,11 @@
-import { CartData } from "./CartData";
+// import { CartData } from "./CartData";
 import cartSection from "../../Assets/Images/cartSection.png";
 import { useEffect, useState } from "react";
 import { useCart } from "../../Context/Cart/Cart-Context";
 
 const CartTotal = () => {
+  const { cart } = useCart();
+
   const [priceDetails, setPriceDetails] = useState({
     originalPrice: 0,
     discountPrice: 0,
@@ -13,23 +15,24 @@ const CartTotal = () => {
 
   useEffect(() => {
     setPriceDetails({
-      originalPrice: CartData.reduce(
-        (acc, item) => acc + item.originalPrice * item.quantity,
-        0
-      ),
-      discountPrice: CartData.reduce(
+      originalPrice: cart.reduce((acc, item) => {
+        console.log(item);
+        return acc + item.originalPrice * item.qty;
+      }, 0),
+
+      discountPrice: cart.reduce(
         (acc, item) =>
-          acc + (item.originalPrice - item.discountPrice) * item.quantity,
+          acc + (item.originalPrice - item.discountPrice) * item.qty,
         0
       ),
     });
-  }, [CartData]);
+  }, [cart]);
 
   return (
     <div className="cart-total-section">
       <div className="cart-total">
         <h1 className="cart-price-heading">
-          PRICE DETAILS ({CartData.length} Items)
+          PRICE DETAILS ({cart.length} Items)
         </h1>
         <div className="total-cost">
           <div className="cart-total-title">Total MRP</div>

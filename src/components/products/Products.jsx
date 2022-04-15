@@ -1,184 +1,193 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Products.css";
 import { useCart, useWishlist } from "../index";
-import { PriceFilter, filters, Rating } from "./FilterSection";
+import { useFilter } from "../../Context/Filter-Context";
+import { Filter } from "./Filter";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
 import { useProduct } from "../../Context/data/Data-Context";
 
 //  filter section
 const Products = () => {
   const { data } = useProduct();
+  const { FilterState, FilterDispatch } = useFilter();
+  const { wishlistToggleHandler, wishlist } = useWishlist();
+  const { addToCartHandler, cart } = useCart();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    FilterState.dataToShow.length === 0 &&
+      FilterDispatch({
+        type: "SET_DATA",
+        payload: data,
+      });
+  }, [data]);
+
+  const categoryFilter = (dataToShow, filterByCategories) => {
+    if (filterByCategories.length > 0) {
+      console.log(filterByCategories);
+      return dataToShow.filter((product) => {
+        console.log(product);
+        return filterByCategories.includes(product.categoryName);
+      });
+    } else {
+      return dataToShow;
+    }
+  };
+
+  const priceFilter = (dataToShow, filterByPrice) => {
+    if (filterByPrice === "PRICE_LOW_TO_HIGH") {
+      return dataToShow.sort(
+        (product1, product2) => product1.discountPrice - product2.discountPrice
+      );
+    } else if (filterByPrice === "PRICE_HIGH_TO_LOW") {
+      return dataToShow.sort(
+        (product1, product2) => product2.discountPrice - product1.discountPrice
+      );
+    } else {
+      return dataToShow;
+    }
+  };
+
+  const priceRangeFilter = (dataToShow, filterByPriceRange) => {
+    if (filterByPriceRange !== null) {
+      return dataToShow.filter(
+        (product) => product.discountPrice <= filterByPriceRange
+      );
+    } else {
+      return dataToShow;
+    }
+  };
+
+  const ratingFilter = (dataToShow, filterByRating) => {
+    if (filterByRating != null) {
+      return dataToShow.filter((product) => product.ratings >= filterByRating);
+    } else {
+      return dataToShow;
+    }
+  };
+
+  const outOfStockFilter = (dataToShow, filterByStock) => {
+    console.log(filterByStock);
+    if (filterByStock === false) {
+      return dataToShow.filter((product) => product.inStock);
+    } else {
+      return dataToShow;
+    }
+  };
+
+  const filteredProducts = (filterState) => {
+    const sortByCategoryData = categoryFilter(
+      filterState.dataToShow,
+      filterState.categoryName
+    );
+
+    const sortByPriceData = priceFilter(
+      sortByCategoryData,
+      FilterState.sortByPrice
+    );
+
+    const sortByStockData = outOfStockFilter(
+      sortByPriceData,
+      FilterState.includeOutOfStock
+    );
+    const sortByRatingData = ratingFilter(sortByStockData, FilterState.ratings);
+
+    const sortByPriceRangeData = priceRangeFilter(
+      sortByRatingData,
+      FilterState.priceRange
+    );
+    return sortByPriceRangeData;
+  };
+
   return (
     <>
       <div className="display-flex-filter">
-        <div className="grid-left-filter">
-          <div className="filter-title">
-            <h3 className="left-filter-title">FILTER</h3>
-            <button className="btn right-clear-btn btn-underline">
-              CLEAR ALL
-            </button>
-          </div>
-          <ul className="filter-section">
-            <div className="filter-divider"></div>
-            <li className="filter-section-title">PRICE RANGE</li>
-            <div class="slidecontainer">
-              <input
-                type="range"
-                min="1"
-                max="100"
-                value="50"
-                class="slider"
-                id="myRange"
-              />
-            </div>
-            <div className="filter-divider"></div>
-
-            <li className="filter-section-title">SORT</li>
-            {PriceFilter.map((priceFilterItem) => {
-              const { priceName, value } = priceFilterItem;
-              return (
-                <li className="list-item filter-item">
-                  <label>
-                    <input
-                      className="filter-radio"
-                      type="radio"
-                      name="sort"
-                      value={value}
-                    />
-                    {priceName}
-                  </label>
-                </li>
-              );
-            })}
-
-            <div className="filter-divider"></div>
-
-            <li className="filter-section-title">CATEGORIES</li>
-            {filters.map((filterItem) => {
-              const { filterName, value } = filterItem;
-              return (
-                <li className="list-item filter-item">
-                  <label>
-                    <input
-                      className="filter-checkbox"
-                      type="checkbox"
-                      name="category"
-                      value={value}
-                    />
-                    {filterName}
-                  </label>
-                </li>
-              );
-            })}
-
-            <div className="filter-divider"></div>
-
-            <li className="filter-section-title">RATING</li>
-            {Rating.map((ratingItem) => {
-              const { ratingName, value } = ratingItem;
-              return (
-                <li className="list-item filter-item">
-                  <label>
-                    <input
-                      className="filter-radio"
-                      type="radio"
-                      name="rating"
-                      value={value}
-                    />
-                    {ratingName}
-                  </label>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-        {/* <!-- </div> --> */}
+        <Filter />
 
         {/* <!-- products --> */}
         <div className="grid-3-column-layout grid-right">
-          {data.map((item) => {
-            const {
-              _id,
-              name,
-              description,
-              originalPrice,
-              hasOffer,
-              hasDiscount,
-              discountPrice,
-              badgeMessage,
-              imageSrc,
-              inStock,
-              fastDelivery,
-              rating,
-              categoryName,
-            } = item;
+          {filteredProducts(FilterState).length > 0 &&
+            filteredProducts(FilterState).map((item) => {
+              const {
+                _id,
+                name,
+                description,
+                originalPrice,
+                hasOffer,
+                hasDiscount,
+                discountPrice,
+                badgeMessage,
+                imageSrc,
+                inStock,
+                ratings,
+                categoryName,
+              } = item;
 
-            const { wishlistToggleHandler, wishlist } = useWishlist();
-            const { addToCartHandler, cart } = useCart();
-            const isInCart =
-              cart.findIndex((i) => i._id === item._id) === -1 ? false : true;
-            const navigate = useNavigate();
-            return (
-              <div className="card-vertical" key={_id}>
-                <div className="card-picture">
-                  <img className="card-img" src={imageSrc} alt={name} />
-                  {hasOffer && (
-                    <span className="card-badge">{badgeMessage}</span>
-                  )}
-                  <span className="hide dismiss-btn">X</span>
-                  <span className="card-rating rated-star">
-                    {<RatingIcon className="rated rated-star rating-size" />}
-                    {rating}
-                  </span>
-                  <div className="hide overlay">
-                    {inStock ? "" : "out of stock"}
-                  </div>
-                </div>
+              const isInCart =
+                cart.findIndex((i) => i._id === item._id) === -1 ? false : true;
 
-                <div className="card-about">
-                  <h1 className="title">{name}</h1>
-                  <h2 className="sub-title card-sub-title">{description} </h2>
-                  <p className="card-para">
-                    ₹{discountPrice}
-                    {hasDiscount && (
-                      <span className="striken-text"> ₹{originalPrice}</span>
+              return (
+                <div className="card-vertical" key={_id}>
+                  <div className="card-picture">
+                    <img className="card-img" src={imageSrc} alt={name} />
+                    {hasOffer && (
+                      <span className="card-badge">{badgeMessage}</span>
                     )}
-                    <span class="discount-percent">
-                      {`${(
-                        ((originalPrice - discountPrice) / originalPrice) *
-                        100
-                      ).toFixed()}% OFF
-                      `}
+                    <span className="hide dismiss-btn">X</span>
+                    <span className="card-rating rated-star">
+                      {<RatingIcon className="rated rated-star rating-size" />}
+                      {ratings}
                     </span>
-                  </p>
-                  <div className="card-container-action">
-                    <button
-                      className="btn-cart"
-                      onClick={
-                        isInCart
-                          ? () => navigate("/cart")
-                          : () => {
-                              addToCartHandler(item);
-                            }
-                      }
-                    >
-                      <i className="fas fa-shopping-cart"></i>
-                      {isInCart ? "Go to cart" : "Add to cart"}
-                    </button>
+                    <div className="hide overlay">
+                      {inStock ? "" : "out of stock"}
+                    </div>
+                  </div>
 
-                    <button
-                      className="heart-btn"
-                      onClick={() => wishlistToggleHandler(item)}
-                    >
-                      {<AddToWishlist className="far fa-heart" />}
-                    </button>
-                    <button className="share-btn">{<ShareIcon />}</button>
+                  <div className="card-about">
+                    <h1 className="title">{name}</h1>
+                    <h2 className="sub-title card-sub-title">{description} </h2>
+                    <p className="card-para">
+                      ₹{discountPrice}
+                      {hasDiscount && (
+                        <span className="striken-text"> ₹{originalPrice}</span>
+                      )}
+                      <span class="discount-percent">
+                        {`${(
+                          ((originalPrice - discountPrice) / originalPrice) *
+                          100
+                        ).toFixed()}% OFF
+                      `}
+                      </span>
+                    </p>
+                    <div className="card-container-action">
+                      <button
+                        className="btn-cart"
+                        onClick={
+                          isInCart
+                            ? () => navigate("/cart")
+                            : () => {
+                                addToCartHandler(item);
+                              }
+                        }
+                      >
+                        <i className="fas fa-shopping-cart"></i>
+                        {isInCart ? "Go to cart" : "Add to cart"}
+                      </button>
+
+                      <button
+                        className="heart-btn"
+                        onClick={() => wishlistToggleHandler(item)}
+                      >
+                        {<AddToWishlist className="far fa-heart" />}
+                      </button>
+                      <button className="share-btn">{<ShareIcon />}</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+
           {/* <!-- grid --> */}
         </div>
         {/* <!-- flex-filter --> */}
