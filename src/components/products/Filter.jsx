@@ -1,11 +1,14 @@
 import React from "react";
 import { useFilter } from "../../Context/Filter-Context";
+import { useTheme } from "../../Context/Theme/Theme-Context";
 
 const Filter = () => {
+  const { theme } = useTheme();
   const { FilterState, FilterDispatch } = useFilter();
 
   return (
-    <>
+    // <>
+    <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
       <div className="grid-left-filter">
         <div className="filter-title">
           <h3 className="left-filter-title">FILTER</h3>
@@ -282,7 +285,9 @@ const Filter = () => {
           </>
         </ul>
       </div>
-    </>
+    </div>
+
+    // </>
   );
 };
 

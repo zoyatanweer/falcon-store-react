@@ -33,7 +33,8 @@ a:not([class]) {
 
 a {
   text-decoration: none;
-  color: inherit;
+  /* color: inherit; */
+  color: var(--text);
 }
 
 img,
@@ -46,6 +47,7 @@ picture {
   --primary-color: #f72585;
   --secondary-color: #ff4d6d;
   --background-color: #f8f9fa;
+  --light-theme-color: #000000;
   --navigation-container-shadow: #6c757d;
   --navigation-color: #212529;
   --desktop-searchbar-bg: #e9ecef;
@@ -68,12 +70,25 @@ body {
 
 /* desktop-nav */
 .link {
+  /* color: var(--primary-color); */
+  /* color: var(--bg); */
+  color: var(--navigation-color);
   padding: 0;
   margin-right: 2.5rem;
   margin-bottom: 0;
   text-decoration: none;
 }
-.link:hover {
+/* .link:hover {
+  color: var(--primary-color);
+} */
+.navigation-container .link {
+  /* background-color: var(--primary-color); */
+  background-color: var(--bg);
+  /* color: var(--background-color); */
+  color: var(--text);
+  font-size: 1.8rem;
+}
+.navigation-container .link:hover {
   color: var(--primary-color);
 }
 .list-non-bullet {
@@ -96,21 +111,34 @@ body {
   padding: 0;
 }
 .navigation-container .nav-brand {
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 2.5rem;
   text-align: left;
 }
 .nav-brand {
+  color: var(--primary-color);
+  /* color: var(--nav-brand); */
+
   text-align: left;
   margin: 1rem auto 1rem 4.8rem;
   cursor: pointer;
 }
-.navigation-container .link {
-  background-color: var(--background-color);
-  color: var(--navigation-color);
-  font-size: 1.8rem;
+.navigation-container .title-theme a {
+  color: var(--primary-color);
 }
-.link-active {
+/* .navigation-container > .list-item .link-active a {
+  /* background-color: var(--background-color); */
+/* color: var(--navigation-color); */
+/* background-color: var(--background-color); */
+/* background-color: var(--bg); */
+/* color: var(--navigation-color); */
+/* color: var(--text); */
+/* background-color: var(--bg) !important;
+  color: var(--primary-color);
+  font-size: 1.8rem;
+} */
+.navigation-container .link-active {
   color: var(--primary-color);
 }
 .navigation-container .nav-pills {
@@ -189,8 +217,8 @@ ul {
 }
 .dismiss-btn {
   position: absolute;
-  top: -22.8rem;
-  left: 20rem;
+  top: 0;
+  left: 20.5rem;
   right: 1.3rem;
 }
 

@@ -50,7 +50,6 @@ const CartProvider = ({ children }) => {
   };
 
   const changeQuantityHandler = (product, quantity) => {
-    console.log(cartResponse);
     fetchCart({
       method: "post",
       url: `/api/user/cart/${product._id}`,

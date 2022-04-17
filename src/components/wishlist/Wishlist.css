@@ -16,7 +16,8 @@
   align-items: center;
 }
 .wishlisted-total {
-  color: var(--navigation-color);
+  /* color: var(--navigation-color); */
+  color: var(--text);
   font-size: 2rem;
   margin-top: 4rem;
 }

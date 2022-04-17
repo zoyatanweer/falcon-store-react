@@ -1,5 +1,4 @@
 .display-flex-filter {
-  background-color: var(--background-color);
   display: flex;
   flex-direction: row;
   width: 30%;
@@ -8,11 +7,14 @@
 }
 .grid-left-filter {
   width: 100%;
-  border-right: 1px solid black;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-right: 1px solid var(--primary-color);
+  border-top: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-color);
   max-height: 85rem;
 }
+
+/* --filter-section starts-- */
+
 .filter-title {
   display: flex;
   justify-content: flex-start;
@@ -25,7 +27,7 @@
 .right-clear-btn {
   color: var(--primary-color);
   font-size: 1.7rem;
-  background-color: var(--background-color);
+  background-color: var(--bg);
   height: 2rem;
   width: 12rem;
   margin: 5px;
@@ -39,9 +41,8 @@
   padding: 5px 1rem;
 }
 .filter-divider {
-  background-color: var(--navigation-color);
+  background-color: var(--primary-color);
   height: 1.5px;
-  /* width: 12rem; */
   width: 90%;
 }
 .filter-section-title {
@@ -60,7 +61,8 @@
   cursor: pointer;
 }
 .filter-item:hover {
-  color: var(--navigation-color);
+  /* color: var(--navigation-color); */
+  color: var(--text);
   cursor: pointer;
   font-weight: 400;
 }
@@ -74,9 +76,11 @@
   justify-content: space-between;
 }
 .span-text-slider span {
-  color: var(--navigation-color);
+  color: var(--text);
   padding-bottom: 1.2rem;
 }
+
+/* --filter section ends-- */
 
 /* products-grid */
 .grid-3-column-layout {
@@ -87,9 +91,13 @@
 }
 .grid-right {
   margin: 3rem 2rem 3rem 12rem;
+  flex-wrap: wrap;
 }
 
 /* card */
+.title {
+  color: var(--light-theme-color);
+}
 .card-sub-title {
   line-height: 1;
 }
@@ -181,13 +189,10 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  /* width: 25px; */
   width: 20px;
-  /* height: 25px; */
   height: 20px;
   border-radius: 50%;
-  /* background: #04aa6d; */
-  background: black;
+  background: var(--text);
   cursor: pointer;
 }
 
