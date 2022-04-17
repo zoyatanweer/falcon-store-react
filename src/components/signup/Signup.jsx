@@ -3,10 +3,13 @@ import "./Signup.css";
 import loginSignup from "../../Assets/Images/loginSignup.png";
 import { VisibilityEyeIcon } from "../../Assets/Svg/allsvg";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../Context/Theme/Theme-Context";
 
 const Signup = () => {
+  const { theme } = useTheme();
+
   return (
-    <>
+    <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
       <section className="login-signup-page">
         <div className="login-signup-form signup-form">
           <h1 className="form-heading margin-bottom-2rem">SIGN UP</h1>
@@ -68,7 +71,7 @@ const Signup = () => {
           <img className="img-form signup-img" src={loginSignup} />
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

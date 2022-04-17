@@ -12,21 +12,19 @@
   color: var(--background-color);
   position: absolute;
   right: 0;
-  /* width: 10rem; */
   width: auto;
-  height: 5rem;
+  height: 12rem;
   padding: 0;
   display: none;
   z-index: 3;
   transition: width 2s;
 }
 .profile:hover .profile-menu {
-  /* display: block; */
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
-  background-color: var(--background-color);
+  background-color: var(--bg);
   color: var(--secondary-color);
   cursor: pointer;
   font-weight: 900;
@@ -35,16 +33,29 @@
   padding: 0;
   width: 10rem;
 }
-
 .single-action-btn {
   position: relative;
 }
-/* .right-nav-img {
-  position: relative;
-} */
 .right-nav-img:hover {
   fill: var(--primary-color);
 }
+
+/* theme starts*/
+.light-theme {
+  --bg: var(--background-color);
+  --text: var(--light-theme-color);
+  --nav-brand: var(--primary-color);
+  background-color: var(--bg);
+  color: var(--text);
+}
+.dark-theme {
+  --bg: var(--navigation-color);
+  --text: var(--background-color);
+  --nav-brand: var(--primary-color);
+  background-color: var(--bg);
+  color: var(--text);
+}
+/* theme ends */
 
 /* badge-on wishlist */
 .btn-icon-wishlist,
@@ -58,14 +69,5 @@
   position: absolute;
   top: -3px;
   right: 0;
-  left: 18px;
+  left: 1.8rem;
 }
-/* .btn-icon-wishlist {
-  left: 111.7rem;
-  top: 1.3rem;
-} */
-
-/* .btn-icon-cart {
-  left: 117.2rem;
-  top: 1.3rem;
-} */

@@ -24,7 +24,9 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
+.card-hori-div1 {
+  width: 10rem;
+}
 .rating-horizontal {
   display: flex;
   flex-direction: row;
@@ -71,6 +73,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  color: var(--navigation-color);
 }
 .total-discount-number,
 .total-coupon-number {

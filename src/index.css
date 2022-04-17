@@ -33,7 +33,7 @@ a:not([class]) {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--text);
 }
 
 img,
@@ -46,6 +46,7 @@ picture {
   --primary-color: #f72585;
   --secondary-color: #ff4d6d;
   --background-color: #f8f9fa;
+  --light-theme-color: #000000;
   --navigation-container-shadow: #6c757d;
   --navigation-color: #212529;
   --desktop-searchbar-bg: #e9ecef;
@@ -68,12 +69,18 @@ body {
 
 /* desktop-nav */
 .link {
+  color: var(--navigation-color);
   padding: 0;
   margin-right: 2.5rem;
   margin-bottom: 0;
   text-decoration: none;
 }
-.link:hover {
+.navigation-container .link {
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 1.8rem;
+}
+.navigation-container .link:hover {
   color: var(--primary-color);
 }
 .list-non-bullet {
@@ -96,21 +103,21 @@ body {
   padding: 0;
 }
 .navigation-container .nav-brand {
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 2.5rem;
   text-align: left;
 }
 .nav-brand {
+  color: var(--primary-color);
   text-align: left;
   margin: 1rem auto 1rem 4.8rem;
   cursor: pointer;
 }
-.navigation-container .link {
-  background-color: var(--background-color);
-  color: var(--navigation-color);
-  font-size: 1.8rem;
+.navigation-container .title-theme a {
+  color: var(--primary-color);
 }
-.link-active {
+.navigation-container .link-active {
   color: var(--primary-color);
 }
 .navigation-container .nav-pills {
@@ -183,14 +190,15 @@ ul {
   color: var(--primary-color);
   fill: var(--primary-color);
 }
+
 /* wishlist */
 .single-card-btn {
   position: relative;
 }
 .dismiss-btn {
   position: absolute;
-  top: -22.8rem;
-  left: 20rem;
+  top: 0;
+  left: 20.5rem;
   right: 1.3rem;
 }
 
@@ -211,8 +219,6 @@ ul {
   height: 40%;
   width: 20%;
   text-align: center;
-  /* margin-bottom: 15px; */
-  /* padding: 5px;  */
 }
 .qty-decrease,
 .qty-increase {

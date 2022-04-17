@@ -6,9 +6,11 @@ import { useFilter } from "../../Context/Filter-Context";
 import { Filter } from "./Filter";
 import { AddToWishlist, RatingIcon, ShareIcon } from "../../Assets/Svg/allsvg";
 import { useProduct } from "../../Context/data/Data-Context";
+import { useTheme } from "../../Context/Theme/Theme-Context";
 
 //  filter section
 const Products = () => {
+  const { theme } = useTheme();
   const { data } = useProduct();
   const { FilterState, FilterDispatch } = useFilter();
   const { wishlistToggleHandler, wishlist } = useWishlist();
@@ -25,9 +27,7 @@ const Products = () => {
 
   const categoryFilter = (dataToShow, filterByCategories) => {
     if (filterByCategories.length > 0) {
-      console.log(filterByCategories);
       return dataToShow.filter((product) => {
-        console.log(product);
         return filterByCategories.includes(product.categoryName);
       });
     } else {
@@ -68,7 +68,6 @@ const Products = () => {
   };
 
   const outOfStockFilter = (dataToShow, filterByStock) => {
-    console.log(filterByStock);
     if (filterByStock === false) {
       return dataToShow.filter((product) => product.inStock);
     } else {
@@ -101,7 +100,7 @@ const Products = () => {
   };
 
   return (
-    <>
+    <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
       <div className="display-flex-filter">
         <Filter />
 
@@ -126,6 +125,10 @@ const Products = () => {
 
               const isInCart =
                 cart.findIndex((i) => i._id === item._id) === -1 ? false : true;
+              const isInWishlist =
+                wishlist.findIndex((i) => i._id === item._id) === -1
+                  ? false
+                  : true;
 
               return (
                 <div className="card-vertical" key={_id}>
@@ -176,7 +179,9 @@ const Products = () => {
                       </button>
 
                       <button
-                        className="heart-btn"
+                        className={` heart-btn ${
+                          isInWishlist ? "heart-btn on-btn" : "heart-btn"
+                        }`}
                         onClick={() => wishlistToggleHandler(item)}
                       >
                         {<AddToWishlist className="far fa-heart" />}
@@ -192,7 +197,7 @@ const Products = () => {
         </div>
         {/* <!-- flex-filter --> */}
       </div>
-    </>
+    </div>
   );
 };
 

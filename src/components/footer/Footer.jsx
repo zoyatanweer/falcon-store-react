@@ -8,9 +8,7 @@ import {
   TwitterIcon,
 } from "../../Assets/Svg/allsvg";
 
-{
-  /* footer  */
-}
+// footer
 const Footer = () => {
   return (
     <footer className="footer">
@@ -22,19 +20,19 @@ const Footer = () => {
           Contact me
           <ul>
             <li className="list-item footer-item list-non-bullet">
-              <Link to="/https://github.com/zoyatanweer">
+              <a href="https://github.com/zoyatanweer">
                 <GithubIcon className="link single-item-footer" />
-              </Link>
+              </a>
             </li>
             <li className="list-item footer-item list-non-bullet">
-              <Link to="https://www.linkedin.com/in/zoya-tanweer-9440431b9/">
+              <a href="https://www.linkedin.com/in/zoya-tanweer-9440431b9/">
                 <LinkedinIcon className="link single-item-footer" />
-              </Link>
+              </a>
             </li>
             <li className="list-item footer-item list-non-bullet">
-              <Link to="https://twitter.com/ItsZoya28">
+              <a href="https://twitter.com/ItsZoya28">
                 <TwitterIcon className="link single-item-footer" />
-              </Link>
+              </a>
             </li>
           </ul>
           <br />
