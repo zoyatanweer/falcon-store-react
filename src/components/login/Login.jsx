@@ -2,10 +2,13 @@ import React from "react";
 import "./Login.css";
 import loginSignup from "../../Assets/Images/loginSignup.png";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../Context/Theme/Theme-Context";
 
 const Login = () => {
+  const { theme } = useTheme();
+
   return (
-    <div>
+    <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
       <section className="login-signup-page">
         <div className="login-img-section">
           <img className="img-form login-img" src={loginSignup} />

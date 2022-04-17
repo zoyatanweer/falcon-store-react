@@ -7,7 +7,6 @@ const Filter = () => {
   const { FilterState, FilterDispatch } = useFilter();
 
   return (
-    // <>
     <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
       <div className="grid-left-filter">
         <div className="filter-title">
@@ -286,8 +285,6 @@ const Filter = () => {
         </ul>
       </div>
     </div>
-
-    // </>
   );
 };
 

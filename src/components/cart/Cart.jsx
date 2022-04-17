@@ -13,7 +13,6 @@ const Cart = () => {
     <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
       <div className="display-cart-section">
         <div className="grid-3-column-layout-cart">
-          {/* card 1 */}
           {cart.map((item) => {
             const {
               _id,

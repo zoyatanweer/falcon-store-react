@@ -8,9 +8,7 @@ import {
   TwitterIcon,
 } from "../../Assets/Svg/allsvg";
 
-{
-  /* footer  */
-}
+// footer
 const Footer = () => {
   return (
     <footer className="footer">

@@ -61,7 +61,6 @@
   cursor: pointer;
 }
 .filter-item:hover {
-  /* color: var(--navigation-color); */
   color: var(--text);
   cursor: pointer;
   font-weight: 400;
@@ -144,7 +143,6 @@
   justify-content: flex-end;
   align-items: center;
   padding-right: 1rem;
-
   position: absolute;
   bottom: 0rem;
   right: 0rem;
@@ -157,7 +155,6 @@
 .heart-btn:hover,
 .share-btn:hover {
   color: var(--primary-color);
-  /* fill: var(--primary-color); */
 }
 .heart-btn-card {
   fill: var(--primary-color);

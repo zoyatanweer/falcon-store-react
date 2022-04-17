@@ -21,7 +21,6 @@ const Wishlist = () => {
           </div>
         </div>
         <div class="wishlist-products">
-          {/* card in react */}
           {wishlist.map((item) => {
             const {
               _id,

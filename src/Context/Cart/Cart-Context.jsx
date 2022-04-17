@@ -35,7 +35,6 @@ const CartProvider = ({ children }) => {
   };
 
   const removeFromCartHandler = (product) => {
-    console.log("hi", product);
     cart.findIndex((item) => item._id === product._id) !== -1 &&
       fetchCart({
         method: "delete",

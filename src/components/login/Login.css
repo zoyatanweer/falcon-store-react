@@ -13,7 +13,6 @@
 }
 .login-form {
   box-shadow: 0px 0px 10px 1px var(--navigation-container-shadow);
-  /* height: 34rem; */
   max-height: 50%;
   margin-top: 9rem;
   margin-left: 8rem;
@@ -46,6 +45,7 @@
   cursor: pointer;
 }
 .login-para {
+  color: vaR(--light-theme-color);
   font-size: 1.7rem;
 }
 .login-link {
@@ -66,6 +66,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--light-theme-color);
 }
 .remember-me-input {
   cursor: pointer;
@@ -73,6 +74,7 @@
   width: 2rem;
 }
 .remember-me-label {
+  color: var(--light-theme-color);
   font-size: 1.8rem;
   margin-left: 0.5rem;
 }
@@ -83,6 +85,7 @@
 }
 .forgot-pwd-para {
   font-size: 1.8rem;
+  color: var(--light-theme-color);
 }
 .forgot-pwd-para:hover {
   color: var(--primary-color);

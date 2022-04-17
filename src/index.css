@@ -33,7 +33,6 @@ a:not([class]) {
 
 a {
   text-decoration: none;
-  /* color: inherit; */
   color: var(--text);
 }
 

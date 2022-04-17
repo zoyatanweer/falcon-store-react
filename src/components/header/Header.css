@@ -20,12 +20,10 @@
   transition: width 2s;
 }
 .profile:hover .profile-menu {
-  /* display: block; */
   display: flex;
   flex-direction: column;
   padding: 0;
   margin: 0;
-  /* background-color: var(--background-color); */
   background-color: var(--bg);
   color: var(--secondary-color);
   cursor: pointer;
@@ -35,11 +33,9 @@
   padding: 0;
   width: 10rem;
 }
-
 .single-action-btn {
   position: relative;
 }
-
 .right-nav-img:hover {
   fill: var(--primary-color);
 }

@@ -100,7 +100,6 @@ const Products = () => {
   };
 
   return (
-    // <>
     <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
       <div className="display-flex-filter">
         <Filter />
@@ -199,7 +198,6 @@ const Products = () => {
         {/* <!-- flex-filter --> */}
       </div>
     </div>
-    // </>
   );
 };
 
