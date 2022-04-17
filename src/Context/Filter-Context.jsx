@@ -75,18 +75,7 @@ const reducerFunc = (state, action) => {
       return {
         ...state,
         categoryName: action.payload,
-        // categoryName: state.categoryName,
       };
-    // return {
-    //   ...state,
-    //   categoryName: state.categoryName.includes(action.payload)
-    //     ? state.categoryName.filter((i) => i !== action.payload)
-    //     : [...state.categoryName, action.payload],
-    // };
-
-    //2 dispatch : add and remove
-    //
-
     case "RATING":
       return {
         ...state,
@@ -95,7 +84,6 @@ const reducerFunc = (state, action) => {
     case "INCLUDE_OUT_OF_STOCK":
       return {
         ...state,
-        // includeOutOfStock: action.payload,
         includeOutOfStock: !state.includeOutOfStock,
       };
     case "SEARCH":

@@ -7,7 +7,6 @@ const ThemeProvider = ({ children }) => {
 
   const toggleTheme = () => {
     setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"));
-    // setTheme((theme) => !theme);
   };
 
   return (
